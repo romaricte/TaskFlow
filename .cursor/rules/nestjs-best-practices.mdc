@@ -1,0 +1,9 @@
+---
+description: Best practices for NestJS applications
+globs: **/*.{ts,js}
+alwaysApply: false
+---
+- Use dependency injection for better modularity and testability
+- Implement proper error handling with custom exceptions and filters
+- Utilize guards, interceptors, and pipes for cross-cutting concerns
+- Follow the official NestJS style guide for consistent code structure
