@@ -13,7 +13,6 @@ model User {
   password  String
   name      String?
   projects  Project[]
-  role      String @default("USER") // USER | ADMIN
   createdAt DateTime @default(now())
 }
 
