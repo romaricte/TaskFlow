@@ -1,0 +1,9 @@
+---
+description: Best practices for JWT authentication
+globs: **/*.{ts,js}
+alwaysApply: false
+---
+- Use secure key management for signing JWTs
+- Implement proper token expiration and refresh mechanisms
+- Validate JWTs on each request using middleware
+- Follow OWASP guidelines for JWT security

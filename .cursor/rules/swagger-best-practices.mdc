@@ -1,0 +1,9 @@
+---
+description: Best practices for Swagger API documentation in NestJS
+globs: **/*.{ts,js}
+alwaysApply: false
+---
+- Use descriptive tags and summaries for each endpoint
+- Implement proper security definitions and authentication
+- Utilize response schemas and examples for clarity
+- Keep documentation up-to-date with code changes

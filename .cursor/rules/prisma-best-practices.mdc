@@ -1,0 +1,10 @@
+---
+description: Best practices for using Prisma ORM
+globs: **/*.{ts,js,prisma}
+alwaysApply: false
+---
+
+- Use Prisma Client for database operations
+- Implement proper transaction handling
+- Utilize Prisma's type-safe query API
+- Follow Prisma's migration best practices
