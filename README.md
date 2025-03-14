@@ -98,3 +98,20 @@ Si tu veux aller encore plus loin, tu peux ajouter :
 
 ### **🎯 Prochaine étape ?**
 Si tu veux commencer, je peux t’aider à définir **la structure du projet** et t’écrire les premières lignes de code. Tu es prêt ? 😃
+
+
+# ORM Prisma
+npm install @prisma/client
+npx prisma init
+
+# Authentification JWT et OAuth
+npm install @nestjs/jwt @nestjs/passport passport passport-jwt bcrypt
+
+# Gestion des WebSockets pour le chat
+npm install @nestjs/websockets @nestjs/platform-socket.io socket.io
+
+# Upload de fichiers
+npm install @nestjs/multer multer
+
+# GraphQL et REST API
+npm install @nestjs/graphql @nestjs/apollo apollo-server-express graphql
