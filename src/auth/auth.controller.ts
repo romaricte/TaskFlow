@@ -30,7 +30,8 @@ export class AuthController {
     return this.authService.signUp(
       inscriptionDto.email,
       inscriptionDto.password,
-      inscriptionDto.name
+      inscriptionDto.name,
+      inscriptionDto.role
     );
   }
 
