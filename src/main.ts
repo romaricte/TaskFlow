@@ -12,7 +12,7 @@ async function bootstrap() {
   // Configuration de Swagger
   const config = new DocumentBuilder()
     .setTitle('TaskFlow API')
-    .setDescription('API de gestion de tâches et de projets')
+    .setDescription('API de gestion de tâches et de projets BY ROMADEV')
     .setVersion('1.0')
     .addBearerAuth(
       {
@@ -30,6 +30,6 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(process.env.PORT ?? 3200);
 }
 bootstrap();
