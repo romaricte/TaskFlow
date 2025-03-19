@@ -1,5 +1,6 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsEmail, IsString, MinLength } from 'class-validator';
+import { IsEmail, IsEnum, IsOptional, IsString, MinLength } from 'class-validator';
+import { UserRole } from '@prisma/client';
 
 export class InscriptionDto {
   @ApiProperty({
@@ -23,5 +24,15 @@ export class InscriptionDto {
     example: 'Jean Dupont'
   })
   @IsString()
+  @IsOptional()
   name?: string;
+  
+  @ApiPropertyOptional({
+    description: "Le rôle de l'utilisateur",
+    enum: UserRole,
+    default: UserRole.USER
+  })
+  @IsEnum(UserRole)
+  @IsOptional()
+  role?: UserRole;
 } 
