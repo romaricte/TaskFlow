@@ -7,6 +7,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtStrategy } from './jwt.strategy';
 import { RolesGuard } from './guards/roles.guard';
+import { MailModule } from '../mail/mail.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { RolesGuard } from './guards/roles.guard';
       }),
       inject: [ConfigService],
     }),
+    MailModule,
   ],
   providers: [AuthService, PrismaService, JwtStrategy, RolesGuard],
   controllers: [AuthController],

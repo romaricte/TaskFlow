@@ -2,12 +2,25 @@ import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
+import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  const configService = app.get(ConfigService);
+
+  // Configuration CORS
+  app.enableCors({
+    // origin: configService.get('FRONTEND_URL') || true,
+    origin: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true,
+  });
 
   // Configuration de la validation globale
-  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(new ValidationPipe({
+    whitelist: true,
+    transform: true,
+  }));
 
   // Configuration de Swagger
   const config = new DocumentBuilder()
@@ -30,6 +43,8 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  await app.listen(process.env.PORT ?? 3200);
+  const port = configService.get('PORT') || 3000;
+  await app.listen(port);
+  console.log(`Application is running on: http://localhost:${port}`);
 }
 bootstrap();

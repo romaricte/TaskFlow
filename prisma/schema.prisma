@@ -33,8 +33,20 @@ model User {
   assignedTasks    Task[]     @relation("TaskAssignee")
   messages         Message[]
   files            File[]
+  otpResets        OtpReset[]
   createdAt        DateTime   @default(now())
   updatedAt        DateTime   @updatedAt
+}
+
+/// Représente un code OTP de réinitialisation de mot de passe.
+model OtpReset {
+  id         Int      @id @default(autoincrement())
+  code       String
+  userId     Int
+  user       User     @relation(fields: [userId], references: [id])
+  expire     DateTime
+  utilisé    Boolean  @default(false)
+  createdAt  DateTime @default(now())
 }
 
 /// Represents a project which contains tasks, messages, and files.
